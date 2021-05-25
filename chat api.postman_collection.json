@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "bfbe1201-aa31-4ab7-9b6f-c7355dcfd4cb",
+		"name": "chat api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "privateMessage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "S5tDCH6ypuzQiMSDXD56Np8ZtV5YYM2iznqGiHKiM3hdjS0x91UrRbYIC3fLtL105We5jEgFZMIEhRGc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_api_base}}privateMessage/2/1",
+							"host": [
+								"{{chat_api_base}}privateMessage"
+							],
+							"path": [
+								"2",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendMessage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "OjGMTXbdvvz3llhQcoTMSiSZH6N61JzL7M0IwKcbePSzQVoxF9NIln8DeurTKLffhw5zjjtS2Nt3FD6v",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "messages",
+									"value": "HelLo Mohamed with photo and  file",
+									"type": "text"
+								},
+								{
+									"key": "receiver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/mbnos/Desktop/larave.png"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/mbnos/Downloads/0915-learning-laravel.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{chat_api_base}}sendMessage",
+							"host": [
+								"{{chat_api_base}}sendMessage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allConversation/{id}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_api_base}}allConversation/3",
+							"host": [
+								"{{chat_api_base}}allConversation"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allConversationsForCurrentUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "llMCOkhSoG0zMLQIwymRW0kuvwgmgDWXAs7bXS1Dr5H5wRASFOVRA88NjrmMXfg7DGXB5d9gJkfKSHB7",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_api_base}}allConversationsForCurrentUser",
+							"host": [
+								"{{chat_api_base}}allConversationsForCurrentUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ZQVnpclH8IjMVxulxoNkUuEQzaNoBWG4dca8zze026LJM2z5Ri0Vqf3BCC11hSA6pVkQv2up9RXgeg6R",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_api_base}}fetchUsers",
+							"host": [
+								"{{chat_api_base}}fetchUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchMessages/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "llMCOkhSoG0zMLQIwymRW0kuvwgmgDWXAs7bXS1Dr5H5wRASFOVRA88NjrmMXfg7DGXB5d9gJkfKSHB7",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_api_base}}fetchMessages/2",
+							"host": [
+								"{{chat_api_base}}fetchMessages"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"hend@mail.com\",\r\n    \"password\":1234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{chat_api_base}}login",
+					"host": [
+						"{{chat_api_base}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ali\",\r\n    \"email\":\"ali@mail.com\",\r\n    \"password\":1234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{chat_api_base}}register",
+					"host": [
+						"{{chat_api_base}}register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "jl1E5na7HAJbzrbOeqEjOE1oyhxQAwU4eqq5skyl664QqGzORnn5JLOZBXTPSOJ47KAQLFyZG9lr63iJ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{chat_api_base}}logout",
+					"host": [
+						"{{chat_api_base}}logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
