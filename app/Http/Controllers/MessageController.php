@@ -150,4 +150,55 @@ class MessageController extends Controller
 
         return ['message' => 'Deleted successfully'];
     }
+    public function notification() {
+
+
+        $SERVER_API_KEY = 'AAAAtBjzmgM:APA91bE84_YjijVjZA03CSX1t428UCHIX37_oaUirpwEhz2FaWqcvg21JMO_A0Z-FSpv24IQQ-jMIqQp5J2Os9v3CYx0qsMDrrDcDL4jeaLIWWoUrJ69GarnzOSNp87IqNYIJiWyr0nu	';
+    
+        $token_1 = 'dSWna2wRSrCqI3pjdcOoG6:APA91bHw-ObC8F28wePI5sAeLYJl6FGfiDUBSuxCvP0QolSm7umzCV97KQGbIBr1Xu0SXCo_8fcrtFJ478HsifGbWd4NJPbP9ibPvy1u6fWEDYezorYnffuO8xVri6UcI5jE5j6kVJNz';
+    
+        $data = [
+    
+            "registration_ids" => [
+                $token_1
+            ],
+    
+            "notification" => [
+    
+                "title" => 'Welcome',
+    
+                "body" => 'Description',
+    
+                "sound"=> "default" // required for sound on ios
+    
+            ],
+    
+        ];
+    
+        $dataString = json_encode($data);
+    
+        $headers = [
+    
+            'Authorization: key=' . $SERVER_API_KEY,
+    
+            'Content-Type: application/json',
+    
+        ];
+    
+        $ch = curl_init();
+    
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+    
+        curl_setopt($ch, CURLOPT_POST, true);
+    
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+    
+        $response = curl_exec($ch);
+    }
 }
